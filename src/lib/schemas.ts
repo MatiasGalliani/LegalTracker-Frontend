@@ -21,8 +21,8 @@ export const expedienteSchema = z.object({
 });
 
 export const plazoSchema = z.object({
-  tipo: z.enum(['Presentación', 'Contestación', 'Oficio', 'Audiencia', 'Otro'], {
-    required_error: 'Seleccioná un tipo de plazo'
+  tipo: z.enum(['Presentación', 'Contestación', 'Oficio', 'Audiencia', 'Otro']).refine(val => val !== undefined, {
+    message: 'Seleccioná un tipo de plazo'
   }),
   titulo: z.string()
     .min(1, 'El título es requerido')
@@ -31,8 +31,8 @@ export const plazoSchema = z.object({
   inicio: z.string().min(1, 'La fecha de inicio es requerida'),
   vence: z.string().min(1, 'La fecha de vencimiento es requerida'),
   todoElDia: z.boolean().default(true),
-  prioridad: z.enum(['Alta', 'Media', 'Baja'], {
-    required_error: 'Seleccioná una prioridad'
+  prioridad: z.enum(['Alta', 'Media', 'Baja']).refine(val => val !== undefined, {
+    message: 'Seleccioná una prioridad'
   }),
   estado: z.enum(['Pendiente', 'Hecho', 'Vencido']).default('Pendiente')
 }).refine((data) => {
@@ -46,8 +46,8 @@ export const plazoSchema = z.object({
 });
 
 export const clienteSchema = z.object({
-  tipo: z.enum(['persona', 'empresa'], {
-    required_error: 'Seleccioná un tipo de cliente'
+  tipo: z.enum(['persona', 'empresa']).refine(val => val !== undefined, {
+    message: 'Seleccioná un tipo de cliente'
   }),
   nombre: z.string()
     .min(1, 'El nombre es requerido')
