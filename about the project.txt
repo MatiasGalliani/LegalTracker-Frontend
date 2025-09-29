@@ -1,0 +1,94 @@
+🎯 Objetivo del MVP
+
+Un sistema que:
+
+Centralice expedientes y clientes.
+
+Controle plazos y audiencias con alertas.
+
+Permita facturar honorarios y registrar gastos.
+
+Genere reportes simples para el estudio y clientes.
+
+📦 Funcionalidades clave (MVP)
+1. Gestión de clientes y expedientes
+
+ABM de clientes (personas / empresas).
+
+ABM de expedientes/causas: número de expediente, fuero, juzgado, carátula, estado.
+
+Relación cliente ↔ expediente.
+
+Notas internas y archivos adjuntos (PDF, escaneos, resoluciones).
+
+2. Control de plazos y audiencias
+
+Carga manual de plazos procesales (tipo: contestar demanda, ofrecer prueba, etc.).
+
+Calendario con vista diaria/semanal/mensual.
+
+Alertas automáticas por mail/WhatsApp/notificación (X días antes).
+
+ABM de audiencias: fecha, lugar, tipo, participantes.
+
+3. Gestión económica básica
+
+Registro de honorarios pactados (por caso, por hora, por cuota).
+
+ABM de facturas y recibos (aunque sea en PDF simple, no AFIP aún).
+
+Control de gastos judiciales (tasas, aportes, oficios, viáticos).
+
+Reporte básico: “Ingresos vs Gastos por expediente / por cliente”.
+
+4. Usuarios y permisos
+
+Multiusuario (socio, junior, procurador, secretaria).
+
+Roles: Admin, Abogado, Asistente.
+
+Cada usuario ve solo lo que necesita.
+
+5. Reportes y panel
+
+Dashboard inicial:
+
+Causas abiertas / cerradas.
+
+Próximos plazos (7 días).
+
+Facturación mensual.
+
+Exportación a Excel/PDF.
+
+6. Extras “gancho”
+
+Búsqueda rápida: por número de expediente, cliente o carátula.
+
+Etiquetas para clasificar causas (laboral, civil, penal, comercial).
+
+Portal de clientes (lite): el abogado puede enviar un link al cliente para ver estado de su causa (solo lectura).
+
+⚙️ Tech stack sugerido
+
+Frontend: React + Vite + Zustand/TanStack Query.
+
+Backend: Node + Fastify/Nest + Prisma + Postgres.
+
+Infra: Render/Fly.io (rápido y barato).
+
+Autenticación: JWT simple + roles.
+
+Notificaciones: email (Sendgrid, Postmark) + futuro WhatsApp (Twilio).
+
+Archivos: S3-compatible (Wasabi/MinIO).
+
+🛠️ Roadmap corto (12 semanas)
+
+Semana 1-2: Setup (auth, Postgres, UI básica, ABM clientes).
+Semana 3-4: Expedientes + relación cliente-expediente.
+Semana 5-6: Plazos + calendario + alertas.
+Semana 7-8: Audiencias + adjuntos PDF.
+Semana 9-10: Honorarios + gastos + reporte básico.
+Semana 11: Dashboard + portal de clientes (lite).
+Semana 12: Deploy + beta con tus contactos abogados.
