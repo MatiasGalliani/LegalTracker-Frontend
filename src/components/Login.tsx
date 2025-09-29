@@ -6,6 +6,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
+import Image from 'next/image';
 
 interface LoginFormData {
   email: string;
@@ -85,9 +86,11 @@ export default function Login({ onLogin, onForgotPassword }: LoginProps) {
         {/* Logo Section */}
         <div className="text-center mb-8">
           <div className="mx-auto mb-4 flex items-center justify-center">
-            <img 
+            <Image 
               src="/logo.svg" 
               alt="LegalTracker Logo" 
+              width={64}
+              height={64}
               className="h-16 w-auto"
             />
           </div>

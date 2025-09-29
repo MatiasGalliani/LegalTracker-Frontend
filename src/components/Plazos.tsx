@@ -207,7 +207,7 @@ export default function Plazos() {
   };
 
   // Handle filter changes
-  const handleFiltroChange = (campo: keyof typeof filtros, valor: any) => {
+  const handleFiltroChange = (campo: keyof typeof filtros, valor: string | string[] | undefined) => {
     setFiltros(prev => ({
       ...prev,
       [campo]: valor

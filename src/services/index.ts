@@ -58,7 +58,7 @@ export const expedientesService = {
     // Apply sorting
     if (orden) {
       expedientes.sort((a, b) => {
-        let aValue: any, bValue: any;
+        let aValue: string | number, bValue: string | number;
         
         switch (orden.campo) {
           case 'actualizadoEn':
@@ -335,7 +335,7 @@ export const audienciasService = {
     // Apply sorting
     if (orden) {
       audiencias.sort((a, b) => {
-        let aValue: any, bValue: any;
+        let aValue: string | number, bValue: string | number;
         
         switch (orden.campo) {
           case 'fecha':
@@ -502,7 +502,7 @@ export const honorariosService = {
     // Apply sorting
     if (orden) {
       honorarios.sort((a, b) => {
-        let aValue: any, bValue: any;
+        let aValue: string | number, bValue: string | number;
         
         switch (orden.campo) {
           case 'fechaServicio':
@@ -710,7 +710,7 @@ export const facturacionService = {
     // Apply sorting
     if (orden) {
       facturas.sort((a, b) => {
-        let aValue: any, bValue: any;
+        let aValue: string | number, bValue: string | number;
         
         switch (orden.campo) {
           case 'fechaEmision':

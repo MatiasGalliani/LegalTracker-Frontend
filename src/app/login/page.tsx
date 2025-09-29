@@ -16,7 +16,7 @@ export default function LoginPage() {
     }
   }, [isAuthenticated, isLoading, router]);
 
-  const handleLogin = (formData: any) => {
+  const handleLogin = (formData: { email: string; password: string }) => {
     console.log('Login data:', formData);
     
     // Mock user data based on credentials

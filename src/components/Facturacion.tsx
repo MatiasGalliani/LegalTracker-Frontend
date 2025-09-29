@@ -164,7 +164,7 @@ export default function Facturacion() {
   };
 
   // Handle filter changes
-  const handleFiltroChange = (campo: keyof FiltrosFacturas, valor: any) => {
+  const handleFiltroChange = (campo: keyof FiltrosFacturas, valor: string | string[] | number | undefined) => {
     setFiltros(prev => ({
       ...prev,
       [campo]: valor
@@ -715,7 +715,7 @@ export default function Facturacion() {
             <DialogHeader>
               <DialogTitle>Eliminar Factura</DialogTitle>
               <DialogDescription>
-                ¿Estás seguro de que querés eliminar la factura "{facturaAEliminar?.numero}"? 
+                ¿Estás seguro de que querés eliminar la factura &quot;{facturaAEliminar?.numero}&quot;? 
                 Esta acción no se puede deshacer.
               </DialogDescription>
             </DialogHeader>

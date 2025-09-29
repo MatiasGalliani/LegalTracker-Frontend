@@ -130,7 +130,7 @@ export default function Expedientes() {
   };
 
   // Handle filter changes
-  const handleFiltroChange = (campo: keyof FiltrosExpedientes, valor: any) => {
+  const handleFiltroChange = (campo: keyof FiltrosExpedientes, valor: string | string[] | undefined) => {
     setFiltros(prev => ({
       ...prev,
       [campo]: valor
@@ -621,7 +621,7 @@ export default function Expedientes() {
           <DialogHeader>
             <DialogTitle>Eliminar Expediente</DialogTitle>
             <DialogDescription>
-              ¿Estás seguro de que querés eliminar el expediente "{expedienteAEliminar?.numero}"? 
+              ¿Estás seguro de que querés eliminar el expediente &quot;{expedienteAEliminar?.numero}&quot;? 
               Esta acción no se puede deshacer.
             </DialogDescription>
           </DialogHeader>

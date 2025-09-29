@@ -1,15 +1,17 @@
+import { Cliente, Expediente, Plazo, Audiencia, Honorario, Factura, Usuario } from '@/types';
+
 const STORAGE_VERSION = '1.0.0';
 const STORAGE_KEY = 'software-abogados-data';
 
 export interface StorageData {
   version: string;
-  clientes: any[];
-  expedientes: any[];
-  plazos: any[];
-  audiencias: any[];
-  honorarios: any[];
-  facturas: any[];
-  usuarios: any[];
+  clientes: Cliente[];
+  expedientes: Expediente[];
+  plazos: Plazo[];
+  audiencias: Audiencia[];
+  honorarios: Honorario[];
+  facturas: Factura[];
+  usuarios: Usuario[];
 }
 
 export const storage = {

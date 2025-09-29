@@ -152,7 +152,7 @@ export default function NuevoExpedienteDialog({ open, onOpenChange }: NuevoExped
                 <Label htmlFor="fuero">Fuero *</Label>
                 <Select
                   value={watch('fuero')}
-                  onValueChange={(value) => setValue('fuero', value as any)}
+                  onValueChange={(value) => setValue('fuero', value as "Laboral" | "Civil" | "Comercial" | "Penal" | "Familia" | "Otros")}
                 >
                   <SelectTrigger className={errors.fuero ? 'border-red-500' : ''}>
                     <SelectValue placeholder="Seleccioná un fuero" />
@@ -232,7 +232,7 @@ export default function NuevoExpedienteDialog({ open, onOpenChange }: NuevoExped
                 <Label htmlFor="estado">Estado *</Label>
                 <Select
                   value={watch('estado')}
-                  onValueChange={(value) => setValue('estado', value as any)}
+                  onValueChange={(value) => setValue('estado', value as "Abierto" | "En trámite" | "Cerrado")}
                 >
                   <SelectTrigger className={errors.estado ? 'border-red-500' : ''}>
                     <SelectValue placeholder="Seleccioná un estado" />

@@ -7,13 +7,13 @@ export const expedienteSchema = z.object({
   caratula: z.string()
     .min(3, 'La carátula debe tener al menos 3 caracteres')
     .max(120, 'La carátula no puede exceder 120 caracteres'),
-  fuero: z.enum(['Laboral', 'Civil', 'Comercial', 'Penal', 'Familia', 'Otros'], {
-    required_error: 'Seleccioná un fuero'
+  fuero: z.enum(['Laboral', 'Civil', 'Comercial', 'Penal', 'Familia', 'Otros']).refine(val => val !== undefined, {
+    message: 'Seleccioná un fuero'
   }),
   juzgado: z.string().optional(),
   jurisdiccion: z.string().optional(),
-  estado: z.enum(['Abierto', 'En trámite', 'Cerrado'], {
-    required_error: 'Seleccioná un estado'
+  estado: z.enum(['Abierto', 'En trámite', 'Cerrado']).refine(val => val !== undefined, {
+    message: 'Seleccioná un estado'
   }),
   clienteId: z.string().min(1, 'Seleccioná un cliente'),
   responsables: z.array(z.string()).min(1, 'Seleccioná al menos un responsable'),

@@ -2,6 +2,7 @@
 
 import { useRouter, usePathname } from 'next/navigation';
 import { useEffect, useState, useRef } from 'react';
+import Image from 'next/image';
 import { 
   Home, 
   Users, 
@@ -51,7 +52,7 @@ export default function Sidebar({ className }: SidebarProps) {
     message: string;
     time: string;
     isRead: boolean;
-    icon: any;
+    icon: React.ComponentType<{ className?: string }>;
     color: string;
   }>>([]);
 
@@ -87,14 +88,14 @@ export default function Sidebar({ className }: SidebarProps) {
   };
   
   const navigationItems = [
-    { icon: Home, label: 'Dashboard', href: '/dashboard' },
-    { icon: Users, label: 'Clientes', href: '/clientes' },
-    { icon: FileText, label: 'Expedientes', href: '/expedientes' },
-    { icon: Clock, label: 'Plazos', href: '/plazos' },
-    { icon: Calendar, label: 'Audiencias', href: '/audiencias' },
+    { icon: Home, label: 'Dashboard', href: '/dashboard', badge: undefined },
+    { icon: Users, label: 'Clientes', href: '/clientes', badge: undefined },
+    { icon: FileText, label: 'Expedientes', href: '/expedientes', badge: undefined },
+    { icon: Clock, label: 'Plazos', href: '/plazos', badge: undefined },
+    { icon: Calendar, label: 'Audiencias', href: '/audiencias', badge: undefined },
     // { icon: DollarSign, label: 'Honorarios', href: '/honorarios' },
     // { icon: Receipt, label: 'Facturación', href: '/facturacion' },
-    { icon: BarChart3, label: 'Reportes', href: '/reportes' },
+    { icon: BarChart3, label: 'Reportes', href: '/reportes', badge: undefined },
   ];
 
   useEffect(() => {
@@ -163,9 +164,11 @@ export default function Sidebar({ className }: SidebarProps) {
       {/* Header */}
       <div className="flex items-center justify-center p-6 border-b border-gray-200">
         <div className="w-48 h-auto">
-          <img 
+          <Image 
             src="/logo.svg" 
             alt="LegalTracker" 
+            width={192}
+            height={48}
             className="w-full h-auto object-contain"
           />
         </div>

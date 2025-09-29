@@ -161,7 +161,7 @@ export default function Honorarios() {
   };
 
   // Handle filter changes
-  const handleFiltroChange = (campo: keyof FiltrosHonorarios, valor: any) => {
+  const handleFiltroChange = (campo: keyof FiltrosHonorarios, valor: string | string[] | number | undefined) => {
     setFiltros(prev => ({
       ...prev,
       [campo]: valor
@@ -704,7 +704,7 @@ export default function Honorarios() {
             <DialogHeader>
               <DialogTitle>Eliminar Honorario</DialogTitle>
               <DialogDescription>
-                ¿Estás seguro de que querés eliminar el honorario "{honorarioAEliminar?.concepto}"? 
+                ¿Estás seguro de que querés eliminar el honorario &quot;{honorarioAEliminar?.concepto}&quot;? 
                 Esta acción no se puede deshacer.
               </DialogDescription>
             </DialogHeader>

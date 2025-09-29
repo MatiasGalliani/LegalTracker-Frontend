@@ -74,7 +74,7 @@ export default function Configuracion() {
     { id: 'sistema', label: 'Sistema', icon: Database },
   ];
 
-  const handleInputChange = (field: string, value: any) => {
+  const handleInputChange = (field: string, value: string | number | boolean) => {
     setSettings(prev => ({ ...prev, [field]: value }));
   };
 

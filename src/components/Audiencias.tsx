@@ -2,7 +2,7 @@
 
 import { useState, useMemo } from 'react';
 import { useQuery } from '@tanstack/react-query';
-import { format, addDays, startOfWeek, endOfWeek, isSameDay, isToday, isTomorrow } from 'date-fns';
+import { format, addDays, startOfWeek, endOfWeek, isToday, isTomorrow } from 'date-fns';
 import { es } from 'date-fns/locale';
 import { 
   Plus, 
@@ -14,13 +14,10 @@ import {
   Trash2,
   Calendar,
   Clock,
-  MapPin,
-  User,
   Building2,
   AlertCircle,
   CheckCircle,
   PlayCircle,
-  PauseCircle,
   Calendar as CalendarIcon,
   ChevronLeft,
   ChevronRight
@@ -47,7 +44,6 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle,
-  DialogTrigger,
   Select,
   SelectContent,
   SelectItem,
@@ -136,7 +132,7 @@ export default function Audiencias() {
   };
 
   // Handle filter changes
-  const handleFiltroChange = (campo: keyof FiltrosAudiencias, valor: any) => {
+  const handleFiltroChange = (campo: keyof FiltrosAudiencias, valor: string | string[] | undefined) => {
     setFiltros(prev => ({
       ...prev,
       [campo]: valor
@@ -791,7 +787,7 @@ export default function Audiencias() {
           <DialogHeader>
             <DialogTitle>Eliminar Audiencia</DialogTitle>
             <DialogDescription>
-              ¿Estás seguro de que querés eliminar la audiencia "{audienciaAEliminar?.titulo}"? 
+              ¿Estás seguro de que querés eliminar la audiencia &quot;{audienciaAEliminar?.titulo}&quot;? 
               Esta acción no se puede deshacer.
             </DialogDescription>
           </DialogHeader>
