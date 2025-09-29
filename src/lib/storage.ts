@@ -16,6 +16,11 @@ export interface StorageData {
 
 export const storage = {
   get(): StorageData | null {
+    // Check if we're in the browser environment
+    if (typeof window === 'undefined') {
+      return null;
+    }
+    
     try {
       const data = localStorage.getItem(STORAGE_KEY);
       if (!data) return null;
@@ -35,6 +40,11 @@ export const storage = {
   },
 
   set(data: StorageData): void {
+    // Check if we're in the browser environment
+    if (typeof window === 'undefined') {
+      return;
+    }
+    
     try {
       const dataWithVersion = { ...data, version: STORAGE_VERSION };
       localStorage.setItem(STORAGE_KEY, JSON.stringify(dataWithVersion));
@@ -44,6 +54,11 @@ export const storage = {
   },
 
   clear(): void {
+    // Check if we're in the browser environment
+    if (typeof window === 'undefined') {
+      return;
+    }
+    
     try {
       localStorage.removeItem(STORAGE_KEY);
     } catch (error) {

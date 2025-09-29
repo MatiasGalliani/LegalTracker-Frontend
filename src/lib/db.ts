@@ -25,7 +25,10 @@ class Database {
   private usuarios: Usuario[] = [];
 
   constructor() {
-    this.loadFromStorage();
+    // Only load from storage on client side
+    if (typeof window !== 'undefined') {
+      this.loadFromStorage();
+    }
   }
 
   private loadFromStorage(): void {
